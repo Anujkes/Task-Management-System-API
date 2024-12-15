@@ -1,7 +1,7 @@
 #schemas for response and requests
 from pydantic import BaseModel
 from typing import Optional
-from datetime import datetime
+from datetime import date
 import models
 
 class User(BaseModel):
@@ -18,7 +18,7 @@ class Task(BaseModel):
     title: str 
     description: Optional[str] 
     category: str    
-    due_date: datetime 
+    due_date: date 
     priority: models.PriorityLevel
 
 class Login(BaseModel):
@@ -30,4 +30,5 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    email: str | None = None
+    email: str
+    userId: int 
